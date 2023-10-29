@@ -1,0 +1,16 @@
+write
+a main function accept your wrie request
+it calculates the hash function of write request, eg {user: "data"}
+    3%10 -> 3
+if a node exist for the corresposing id, add the user to that node
+if a node does not exist, create the node and add to that node
+
+read
+a main function accept read request
+calculate hash of read request
+if node exist for the corresponding id, read that node
+it does not, say sorry
+
+{1: set({1: ["data1", "data2"], 2: ["data1", "data2"]})}
+
+{1:"datacjehfoefaefvavhsojsivgifji"}
