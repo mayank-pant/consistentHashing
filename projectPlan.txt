@@ -18,3 +18,43 @@ it does not, say sorry
 hash the key
 store the key in server corresponding to that hash
 now if server goes down (i will randomly assign a server healthcheck endpoint as ERROR)
+
+does consistent hashing works if server goes randomly down
+how do you move keys to a new server if server is down consistent hashing
+why we do modulo with number of server to hash ?
+what if hash two object hash collides in consistent hashing -> what is object collision and how to resolve in hashing
+    answer ->  To resolve a collision, the next available empty slot is assigned to the current hash value
+
+to add a key:-
+    calculate its hash -> hash(key) % number of server (calculate hash)
+    find the hash location in ring (find location of hash in ring)
+    from the location do clockwise search till you find the server (find the server mapped to that hash)
+    add the key to that server (add key to the server)
+
+to read a key
+    calculate its hash -> hash(key) % number of server (calculate hash)
+    find the hash location in ring (find location of hash in ring)
+    from the location do clockwise search till you find the server (find the server mapped to that hash)
+    lookup the key in the server, if not found, return accordingly
+    if found, return the value associated with the key (read key from server)
+
+to delete a key
+    calculate its hash -> hash(key) % number of server (calculate hash)
+    find the hash location in ring (find location of hash in ring)
+    from the location do clockwise search till you find the server (find the server mapped to that hash)
+    lookup the key in the server, if not found, return accordingly
+    if found, delete the key (delete key from server)
+
+if server is down/removed
+    calculate the downed server hash (calculate hash)
+    find the server mapped to that hash
+    find next server
+    add the objects range to the next server
+    remove the downed server
+
+if server is added
+    calculate the added server hash (calculate hash)
+    find the position in circle for that hash
+    add in that position
+    find all the data points bw the current added server and previous server (searching counter clockwise)
+    add those data points to the newly added server, and remove the data points from the next server
