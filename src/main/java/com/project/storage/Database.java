@@ -1,12 +1,7 @@
 package com.project.storage;
 
-import com.project.dto.Response;
-import com.project.dto.WriteRequest;
-import jakarta.inject.Singleton;
-
 import java.util.*;
 
-@Singleton
 public class Database {
     public static Map<Integer, Map<Integer, List<Object>>> database = new HashMap<>();
 

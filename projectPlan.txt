@@ -14,3 +14,7 @@ it does not, say sorry
 {1: set({1: ["data1", "data2"], 2: ["data1", "data2"]})}
 
 {1:"datacjehfoefaefvavhsojsivgifji"}
+
+hash the key
+store the key in server corresponding to that hash
+now if server goes down (i will randomly assign a server healthcheck endpoint as ERROR)
