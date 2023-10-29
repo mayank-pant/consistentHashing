@@ -1,21 +1,19 @@
-## Micronaut 4.0.4 Documentation
+## Consistent-hashing
 
-- [User Guide](https://docs.micronaut.io/4.0.4/guide/index.html)
-- [API Reference](https://docs.micronaut.io/4.0.4/api/index.html)
-- [Configuration Reference](https://docs.micronaut.io/4.0.4/guide/configurationreference.html)
-- [Micronaut Guides](https://guides.micronaut.io/index.html)
----
-
-- [Shadow Gradle Plugin](https://plugins.gradle.org/plugin/com.github.johnrengelman.shadow)
-- [Micronaut Gradle Plugin documentation](https://micronaut-projects.github.io/micronaut-gradle-plugin/latest/)
-- [GraalVM Gradle Plugin documentation](https://graalvm.github.io/native-build-tools/latest/gradle-plugin.html)
-## Feature serialization-jackson documentation
-
-- [Micronaut Serialization Jackson Core documentation](https://micronaut-projects.github.io/micronaut-serialization/latest/guide/)
-
-
-## Feature micronaut-aot documentation
-
-- [Micronaut AOT documentation](https://micronaut-projects.github.io/micronaut-aot/latest/guide/)
+- This is simple hashing implementation for now
+- This project uses modulo 10 as hash
+- Using userid as hash input and data is stored in format
+    ```
+    {1:
+      {2:["radagast"],
+       3:["some info"]}
+    }
+    ```
+    1 is hashValue  
+    2 is userId and list has data
+- 
+- to save value path is **/consistent-hashing/save**
+    - Body is **{userId:1,data:"dfdsf"}**
+- to read value path is **/consistent-hashing/read/1** where 1 is userId
 
 
