@@ -58,3 +58,10 @@ if server is added
     add in that position
     find all the data points bw the current added server and previous server (searching counter clockwise)
     add those data points to the newly added server, and remove the data points from the next server
+
+commit-log:
+    2023-10-31:
+        added Database service
+        to do tommorow
+            implement hash function
+            design other functions

@@ -1,4 +1,4 @@
-package com.project.hashFunction;
+package main.java.com.project.hashFunction;
 
 
 public class Modulo {

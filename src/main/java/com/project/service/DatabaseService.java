@@ -1,9 +1,7 @@
-package com.project.service;
+package main.java.com.project.service;
 
 import com.project.hashFunction.Modulo;
 import com.project.storage.Database;
-import jakarta.inject.Inject;
-import jakarta.inject.Singleton;
 
 public class DatabaseService {
     private final Modulo modulo;

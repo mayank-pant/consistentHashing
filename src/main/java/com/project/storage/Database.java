@@ -1,46 +1,35 @@
-package com.project.storage;
+package main.java.com.project.storage;
+
+import com.project.storage.enums.Response;
 
 import java.util.*;
 
 public class Database {
-    public static Map<Integer, Map<Integer, List<Object>>> database = new HashMap<>();
+    public static Map<Integer,List<Object>> database = new HashMap<>();
 
-    public Response save(Integer node, WriteRequest data) {
+    public Response save(Integer userId, Object data) {
         try {
-            if (database.containsKey(node)) {
-                if (database.get(node).containsKey(data.getUserId())) {
-                    database.get(node).get(data.getUserId()).add(data.getData());
-                } else {
-                    database.get(node).put(data.getUserId(),new ArrayList<>(Arrays.asList(data.getData())));
-                }
+            if (database.containsKey(userId)) {
+                database.get(userId).add(data);
             } else {
-                HashMap<Integer,List<Object>> newData = new HashMap<>();
-                newData.put(data.getUserId(), new ArrayList<>(Arrays.asList(data.getData())));
-                database.put(node, newData);
+                List<Object> keyData = new ArrayList<>(Arrays.asList(data));
+                database.put(userId, keyData);
             }
             return Response.OK;
         } catch (Exception e) {
             System.out.println("Error occured");
             System.out.println(e.getMessage());
-            return Response.ERROR;
+            return Response.ERROR_SAVING;
         }
     }
 
-    public Object read(Integer node, Integer userId) {
+    public Object read(Integer userId) {
         try {
-            if (database.containsKey(node)) {
-                if (database.get(node).containsKey(userId)) {
-                    return database.get(node).get(userId);
-                } else {
-                    return "user does not exist";
-                }
-            } else {
-                return "user does not exist";
-            }
+            return database.get(userId);
         } catch (Exception e) {
             System.out.println("Error occured");
             System.out.println(e.getMessage());
-            return "some error occured";
+            return Response.USER_NOT_PRESENT;
         }
     }
 }
